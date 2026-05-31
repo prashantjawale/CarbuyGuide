@@ -1,0 +1,84 @@
+extends ../layout
+
+block content
+  .container.assistant-container
+    .progress-bar
+      .progress-fill(style=`width: ${progress}%`)
+    .progress-text Step #{step + 1} of #{totalQuestions}
+
+    .question-card
+      h2.question-text= question.question
+
+      form.question-form(action="/find-my-car/answer" method="POST")
+        input(type="hidden" name="step" value=step)
+        input(type="hidden" name="questionId" value=question.id)
+
+        //- Single choice questions
+        if question.type === 'singleChoice'
+          .options-list
+            each option in question.options
+              label.option-item(data-auto-proceed="true")
+                input(type="radio" name="answer" value=option.value checked=(answers[question.id] === option.value))
+                span.option-label= option.label
+
+        //- Multi choice questions
+        else if question.type === 'multiChoice'
+          .options-list
+            if question.maxSelections
+              p.hint Select up to #{question.maxSelections}
+            each option in question.options
+              - const currentAnswers = Array.isArray(answers[question.id]) ? answers[question.id] : (answers[question.id] ? [answers[question.id]] : [])
+              label.option-item
+                input(type="checkbox" name="answer" value=option.value checked=currentAnswers.includes(option.value))
+                span.option-label= option.label
+
+        //- Range (budget) question
+        else if question.type === 'range'
+          .range-inputs
+            .range-group
+              label Minimum Budget
+              select.range-select(name="budgetMin")
+                - for (let v = question.min; v <= question.max; v += question.step)
+                  option(value=v selected=(answers.budgetMin == v))= `₹${(v/100000).toFixed(1)}L`
+            .range-group
+              label Maximum Budget
+              select.range-select(name="budgetMax")
+                - for (let v = question.min; v <= question.max; v += question.step)
+                  option(value=v selected=(answers.budgetMax == v || (!answers.budgetMax && v === 2000000)))= `₹${(v/100000).toFixed(1)}L`
+          input(type="hidden" name="answer" value="range")
+
+        //- Loan details
+        else if question.type === 'loanInput'
+          .loan-inputs
+            .input-group
+              label Down Payment (%)
+              input.input-field(type="number" name="downPaymentPercent" min=question.fields.downPaymentPercent.min max=question.fields.downPaymentPercent.max value=(answers.downPaymentPercent || question.fields.downPaymentPercent.default))
+            .input-group
+              label Tenure (months)
+              select.input-field(name="tenureMonths")
+                each tenure in question.fields.tenureMonths.options
+                  option(value=tenure selected=(answers.tenureMonths == tenure || (!answers.tenureMonths && tenure === question.fields.tenureMonths.default)))= `${tenure} months (${(tenure/12).toFixed(1)} years)`
+            .input-group
+              label Interest Rate (%)
+              input.input-field(type="number" name="interestRate" min=question.fields.interestRate.min max=question.fields.interestRate.max step="0.25" value=(answers.interestRate || question.fields.interestRate.default))
+          input(type="hidden" name="answer" value="loanDetails")
+
+        //- Action buttons — unified row for Back + Next
+        if question.type !== 'singleChoice'
+          .form-actions
+            if hasPrev
+              a.btn.btn-secondary(href="/find-my-car/prev") ← Back
+            if question.optional
+              a.btn.btn-ghost(href=`/find-my-car?step=${step + 1}`) Skip
+            button.btn.btn-primary(type="submit") Next →
+
+      //- For single choice, only show Back (Next is auto-proceed)
+      if question.type === 'singleChoice'
+        .form-actions
+          if hasPrev
+            a.btn.btn-secondary(href="/find-my-car/prev") ← Back
+          if question.optional
+            a.btn.btn-ghost(href=`/find-my-car?step=${step + 1}`) Skip
+
+block scripts
+  script(src="/js/questionnaire.js")

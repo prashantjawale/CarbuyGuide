@@ -1,0 +1,161 @@
+extends ../layout
+
+block content
+  .container.results-container
+    .results-header
+      h1 Your Perfect Match
+      if totalAfterFilter > 0
+        p We analyzed #{totalConsidered} cars, #{totalAfterFilter} matched your criteria. Here's your shortlist.
+      else
+        p We analyzed #{totalConsidered} cars to find the best options for you.
+
+    //- Budget Warning Banner
+    if budgetWarning
+      .budget-warning
+        .warning-icon ⚠️
+        .warning-content
+          p.warning-message= budgetWarning.message
+          p.warning-suggestion= budgetWarning.suggestion
+
+    //- Best In-Budget Option (when budget doesn't match all criteria)
+    if bestInBudget
+      .in-budget-section
+        .in-budget-badge 💰 Best Within Your Budget
+        .in-budget-card
+          .in-budget-header
+            .in-budget-info
+              h3 #{bestInBudget.car.make} #{bestInBudget.car.model}
+              p.in-budget-variant= bestInBudget.car.variant
+              .in-budget-meta
+                span.meta-badge= bestInBudget.car.bodyType
+                span.meta-badge= bestInBudget.car.fuelType
+                span.meta-badge= bestInBudget.car.transmission
+                if bestInBudget.car.safetyRating >= 5
+                  span.meta-badge.badge-safety ⭐ #{bestInBudget.car.safetyRating}-Star
+            .in-budget-price
+              .price-main ₹#{(bestInBudget.car.priceExShowroom / 100000).toFixed(1)}L
+              .price-sub ex-showroom
+          .in-budget-body
+            .in-budget-columns
+              .in-budget-col
+                h4 ✅ What matches
+                ul.reasons-list
+                  each reason in bestInBudget.reasons
+                    li= reason
+              .in-budget-col
+                h4 ⚠️ What doesn't match
+                ul.unmet-list
+                  each criteria in bestInBudget.unmetCriteria
+                    li= criteria
+            .in-budget-cost
+              span.monthly-label Monthly cost:
+              span.monthly-value ₹#{bestInBudget.monthlyCost.totalMonthly.toLocaleString('en-IN')}/month
+
+    //- Top Pick — Hero Card (from expanded budget if warning exists)
+    if topPick
+      .top-pick-section
+        if budgetWarning
+          .top-pick-badge 🏆 Top Choice (With Increased Budget)
+        else
+          .top-pick-badge 🏆 Top Choice For You
+        .top-pick-card
+          .top-pick-header
+            .top-pick-info
+              h2.top-pick-name #{topPick.car.make} #{topPick.car.model}
+              p.top-pick-variant= topPick.car.variant
+              .top-pick-meta
+                span.meta-badge= topPick.car.bodyType
+                span.meta-badge= topPick.car.fuelType
+                span.meta-badge= topPick.car.transmission
+                if topPick.car.safetyRating >= 5
+                  span.meta-badge.badge-safety ⭐ #{topPick.car.safetyRating}-Star
+            .top-pick-match
+              .match-circle
+                span.match-number #{topPick.matchPercentage}%
+                span.match-label match
+
+          .top-pick-body
+            .top-pick-columns
+              .top-pick-col
+                h4 Why This Car
+                ul.reasons-list
+                  each reason in topPick.reasons
+                    li= reason
+                .pros-cons
+                  .pros
+                    h5 👍 Pros
+                    each pro in topPick.car.pros
+                      span.pro-tag= pro
+                  .cons
+                    h5 👎 Cons
+                    each con in topPick.car.cons
+                      span.con-tag= con
+
+              .top-pick-col
+                h4 Price
+                .price-block
+                  .price-main ₹#{(topPick.car.priceExShowroom / 100000).toFixed(1)}L
+                  .price-sub ex-showroom (~₹#{(topPick.car.onRoadEstimate / 100000).toFixed(1)}L on-road)
+                  if budgetWarning && userProfile && userProfile.budget
+                    .price-over-budget ↑ ₹#{(((topPick.car.onRoadEstimate - userProfile.budget[1]) / 100000).toFixed(1))}L over your budget
+
+                h4 Monthly Ownership Cost
+                .monthly-cost-card
+                  .monthly-total ₹#{topPick.monthlyCost.totalMonthly.toLocaleString('en-IN')}/month
+                  .cost-breakdown
+                    .cost-item
+                      span.cost-label ⛽ Fuel
+                      span.cost-value ₹#{topPick.monthlyCost.breakdown.fuel.amount.toLocaleString('en-IN')}
+                    .cost-item
+                      span.cost-label 🏦 EMI
+                      span.cost-value ₹#{topPick.monthlyCost.breakdown.emi.amount.toLocaleString('en-IN')}
+                    .cost-item
+                      span.cost-label 🛡️ Insurance
+                      span.cost-value ₹#{topPick.monthlyCost.breakdown.insurance.amount.toLocaleString('en-IN')}
+                    .cost-item
+                      span.cost-label 🔧 Maintenance
+                      span.cost-value ₹#{topPick.monthlyCost.breakdown.maintenance.amount.toLocaleString('en-IN')}
+
+                .specs-mini
+                  .spec-item
+                    span.spec-num= topPick.car.mileageKMPL
+                    span.spec-unit km/l
+                  .spec-item
+                    span.spec-num= topPick.car.powerBHP
+                    span.spec-unit BHP
+                  .spec-item
+                    span.spec-num= topPick.car.seatingCapacity
+                    span.spec-unit seats
+
+    //- Other Suggestions
+    if otherSuggestions && otherSuggestions.length > 0
+      .other-suggestions
+        if budgetWarning
+          h3 Other Options (Expanded Budget)
+        else
+          h3 Also Worth Considering
+        .suggestion-grid
+          each rec, index in otherSuggestions
+            .suggestion-card
+              .suggestion-rank ##{index + 2}
+              .suggestion-info
+                h4 #{rec.car.make} #{rec.car.model}
+                p.suggestion-variant= rec.car.variant
+                .suggestion-meta
+                  span= rec.car.bodyType
+                  span |
+                  span= rec.car.fuelType
+                  span |
+                  span ⭐ #{rec.car.safetyRating}-star
+              .suggestion-price
+                .price-tag ₹#{(rec.car.priceExShowroom / 100000).toFixed(1)}L
+                .monthly-tag ₹#{rec.monthlyCost.totalMonthly.toLocaleString('en-IN')}/mo
+              .suggestion-match
+                span.match-badge #{rec.matchPercentage}% match
+              .suggestion-reasons
+                each reason in rec.reasons.slice(0, 2)
+                  span.reason-tag= reason
+
+    .results-actions
+      a.btn.btn-secondary(href="/find-my-car/reset") Start Over
+      a.btn.btn-ghost(href="/") Browse All Cars

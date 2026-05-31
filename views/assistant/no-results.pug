@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  .container.no-results
+    .no-results-card
+      h2 😕 No Cars Match Your Criteria
+      p= message
+      .no-results-actions
+        a.btn.btn-primary(href="/find-my-car/reset") Try Again With Different Preferences
+        a.btn.btn-secondary(href="/") Browse All Cars Instead

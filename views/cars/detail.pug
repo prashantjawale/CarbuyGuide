@@ -1,0 +1,88 @@
+extends ../layout
+
+block content
+  .container
+    .breadcrumb
+      a(href="/") All Cars
+      span  → 
+      span #{car.make} #{car.model}
+
+    .car-detail
+      .car-detail-header
+        h1 #{car.make} #{car.model}
+        p.car-detail-variant= car.variant
+        .car-detail-badges
+          span.meta-badge= car.bodyType
+          span.meta-badge= car.fuelType
+          span.meta-badge= car.transmission
+          span.meta-badge #{car.year}
+          if car.safetyRating >= 5
+            span.meta-badge.badge-safety ⭐ #{car.safetyRating}-Star Safety
+
+      .car-detail-body
+        .detail-section
+          h3 Price
+          .price-block
+            .price-main ₹#{(car.priceExShowroom / 100000).toFixed(1)}L
+            .price-sub ex-showroom (estimated on-road: ₹#{((car.priceExShowroom * 1.1) / 100000).toFixed(1)}L)
+
+        .detail-section
+          h3 Specifications
+          .specs-grid
+            .spec-card
+              .spec-card-value #{car.engineCC}cc
+              .spec-card-label Engine
+            .spec-card
+              .spec-card-value #{car.powerBHP} BHP
+              .spec-card-label Power
+            .spec-card
+              .spec-card-value #{car.torqueNM} Nm
+              .spec-card-label Torque
+            .spec-card
+              .spec-card-value #{car.mileageKMPL} km/l
+              .spec-card-label Mileage
+            .spec-card
+              .spec-card-value #{car.seatingCapacity}
+              .spec-card-label Seats
+            .spec-card
+              .spec-card-value #{car.bootSpaceLitres}L
+              .spec-card-label Boot
+            .spec-card
+              .spec-card-value #{car.groundClearanceMM}mm
+              .spec-card-label Ground Clearance
+            .spec-card
+              .spec-card-value #{car.airbags}
+              .spec-card-label Airbags
+
+        .detail-section
+          h3 Key Features
+          .features-list
+            each feature in car.features
+              span.feature-tag= feature
+
+        .detail-section
+          h3 Best For
+          .features-list
+            each tag in car.bestFor
+              span.tag= tag
+
+        .detail-columns
+          .detail-section
+            h3 👍 Pros
+            ul.pros-list
+              each pro in car.pros
+                li= pro
+          .detail-section
+            h3 👎 Cons
+            ul.cons-list
+              each con in car.cons
+                li= con
+
+        .detail-section
+          h3 User Rating
+          .rating-display
+            span.rating-stars ⭐ #{car.userRating}/5
+
+    .detail-actions
+      a.btn.btn-primary(href="/find-my-car") Find My Perfect Car
+      a.btn.btn-secondary(href="/") ← Back to All Cars

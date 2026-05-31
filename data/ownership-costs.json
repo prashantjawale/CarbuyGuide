@@ -1,0 +1,469 @@
+{
+  "fuelPrices": {
+    "Petrol": 104.95,
+    "Diesel": 92.72,
+    "CNG": 76.59,
+    "Electric": 7.5,
+    "Hybrid Petrol": 104.95,
+    "Turbo Petrol": 104.95
+  },
+  "fuelPriceUnit": "INR per litre (Electric: INR per kWh)",
+  "insuranceRateFirstYear": 0.028,
+  "insuranceRateSubsequent": 0.022,
+  "registrationRatePercent": 0.1,
+  "defaultLoanInterestRate": 8.75,
+  "defaultLoanTenureMonths": 60,
+  "defaultDownPaymentPercent": 20,
+  "carMaintenanceData": [
+    {
+      "id": 1,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 4500,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 16000,
+      "majorServiceCost": 8000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 2,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 4500,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 16000,
+      "majorServiceCost": 8500,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 3,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5500,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 20000,
+      "majorServiceCost": 10000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 4,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5000,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 18000,
+      "majorServiceCost": 9000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 5,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 4500,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 16000,
+      "majorServiceCost": 8000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 6,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5500,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 22000,
+      "majorServiceCost": 10000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 7,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6000,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 12000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 8,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5500,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 22000,
+      "majorServiceCost": 10000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 9,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6000,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 12000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 10,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6500,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 12000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 11,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 7000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 28000,
+      "majorServiceCost": 14000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 12,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 7000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 28000,
+      "majorServiceCost": 14000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 13,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 7500,
+      "tyreLifeKM": 50000,
+      "tyreCostSet": 32000,
+      "majorServiceCost": 15000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 14,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 7000,
+      "tyreLifeKM": 50000,
+      "tyreCostSet": 30000,
+      "majorServiceCost": 14000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 15,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 7000,
+      "tyreLifeKM": 35000,
+      "tyreCostSet": 36000,
+      "majorServiceCost": 14000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 16,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5500,
+      "tyreLifeKM": 50000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 10000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 17,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5500,
+      "tyreLifeKM": 50000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 10000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 18,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 11000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 19,
+      "serviceIntervalKM": 15000,
+      "avgServiceCost": 8000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 28000,
+      "majorServiceCost": 16000,
+      "majorServiceIntervalKM": 60000
+    },
+    {
+      "id": 20,
+      "serviceIntervalKM": 15000,
+      "avgServiceCost": 8000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 28000,
+      "majorServiceCost": 16000,
+      "majorServiceIntervalKM": 60000
+    },
+    {
+      "id": 21,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5000,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 20000,
+      "majorServiceCost": 9000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 22,
+      "serviceIntervalKM": 0,
+      "avgServiceCost": 3000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 22000,
+      "majorServiceCost": 5000,
+      "majorServiceIntervalKM": 60000
+    },
+    {
+      "id": 23,
+      "serviceIntervalKM": 0,
+      "avgServiceCost": 3500,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 26000,
+      "majorServiceCost": 6000,
+      "majorServiceIntervalKM": 60000
+    },
+    {
+      "id": 24,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6500,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 26000,
+      "majorServiceCost": 13000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 25,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5500,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 10000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 26,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 4500,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 20000,
+      "majorServiceCost": 8000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 27,
+      "serviceIntervalKM": 15000,
+      "avgServiceCost": 8000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 28000,
+      "majorServiceCost": 16000,
+      "majorServiceIntervalKM": 60000
+    },
+    {
+      "id": 28,
+      "serviceIntervalKM": 15000,
+      "avgServiceCost": 8000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 28000,
+      "majorServiceCost": 16000,
+      "majorServiceIntervalKM": 60000
+    },
+    {
+      "id": 29,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 11000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 30,
+      "serviceIntervalKM": 0,
+      "avgServiceCost": 3500,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 6000,
+      "majorServiceIntervalKM": 60000
+    },
+    {
+      "id": 31,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 7000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 28000,
+      "majorServiceCost": 14000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 32,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6500,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 12000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 33,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5500,
+      "tyreLifeKM": 35000,
+      "tyreCostSet": 28000,
+      "majorServiceCost": 10000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 34,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5000,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 18000,
+      "majorServiceCost": 9000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 35,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5500,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 20000,
+      "majorServiceCost": 10000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 36,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5000,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 18000,
+      "majorServiceCost": 9000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 37,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5000,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 18000,
+      "majorServiceCost": 9000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 38,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6000,
+      "tyreLifeKM": 60000,
+      "tyreCostSet": 32000,
+      "majorServiceCost": 12000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 39,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6500,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 26000,
+      "majorServiceCost": 13000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 40,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 6000,
+      "tyreLifeKM": 60000,
+      "tyreCostSet": 32000,
+      "majorServiceCost": 12000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 41,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 7000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 32000,
+      "majorServiceCost": 14000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 42,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 9000,
+      "tyreLifeKM": 50000,
+      "tyreCostSet": 40000,
+      "majorServiceCost": 18000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 43,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 7500,
+      "tyreLifeKM": 50000,
+      "tyreCostSet": 32000,
+      "majorServiceCost": 15000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 44,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 3500,
+      "tyreLifeKM": 35000,
+      "tyreCostSet": 10000,
+      "majorServiceCost": 6000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 45,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 4000,
+      "tyreLifeKM": 35000,
+      "tyreCostSet": 12000,
+      "majorServiceCost": 7000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 46,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 4500,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 14000,
+      "majorServiceCost": 8000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 47,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5000,
+      "tyreLifeKM": 40000,
+      "tyreCostSet": 16000,
+      "majorServiceCost": 9000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 48,
+      "serviceIntervalKM": 0,
+      "avgServiceCost": 3000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 24000,
+      "majorServiceCost": 5000,
+      "majorServiceIntervalKM": 60000
+    },
+    {
+      "id": 49,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 5000,
+      "tyreLifeKM": 45000,
+      "tyreCostSet": 20000,
+      "majorServiceCost": 9000,
+      "majorServiceIntervalKM": 40000
+    },
+    {
+      "id": 50,
+      "serviceIntervalKM": 10000,
+      "avgServiceCost": 10000,
+      "tyreLifeKM": 50000,
+      "tyreCostSet": 48000,
+      "majorServiceCost": 20000,
+      "majorServiceIntervalKM": 40000
+    }
+  ]
+}

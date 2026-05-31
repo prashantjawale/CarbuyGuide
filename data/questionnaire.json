@@ -1,0 +1,281 @@
+{
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "dailyDistance",
+      "question": "How much do you drive daily?",
+      "type": "singleChoice",
+      "options": [
+        { "label": "Less than 20 km (short city trips)", "value": 15 },
+        { "label": "20-40 km (regular commute)", "value": 30 },
+        { "label": "40-80 km (long commute / mixed)", "value": 60 },
+        { "label": "80+ km (highway heavy)", "value": 100 }
+      ],
+      "usedFor": ["fuelCostCalc", "maintenanceCalc", "scoring"],
+      "scoringTags": {
+        "15": ["city"],
+        "30": ["city", "commute"],
+        "60": ["highway", "commute"],
+        "100": ["highway", "longDrive"]
+      }
+    },
+    {
+      "id": "primaryUse",
+      "question": "What will you primarily use this car for?",
+      "type": "multiChoice",
+      "maxSelections": 2,
+      "options": [
+        {
+          "label": "Daily office commute",
+          "value": "commute",
+          "tags": ["city", "commute", "mileage"]
+        },
+        {
+          "label": "Family outings & weekend trips",
+          "value": "family",
+          "tags": ["family", "comfort", "space"]
+        },
+        {
+          "label": "Long highway drives",
+          "value": "highway",
+          "tags": ["highway", "longDrive", "performance"]
+        },
+        {
+          "label": "Off-road / adventure trips",
+          "value": "offroad",
+          "tags": ["offroad", "adventure"]
+        },
+        {
+          "label": "City errands & short trips",
+          "value": "cityShort",
+          "tags": ["city", "firstCar"]
+        },
+        {
+          "label": "Ride-sharing / commercial",
+          "value": "commercial",
+          "tags": ["mileage", "cng", "diesel"]
+        }
+      ],
+      "usedFor": ["scoring"]
+    },
+    {
+      "id": "passengers",
+      "question": "Who usually rides with you?",
+      "type": "singleChoice",
+      "options": [
+        {
+          "label": "Mostly alone or with one person",
+          "value": "solo",
+          "tags": []
+        },
+        {
+          "label": "Family of 3-4",
+          "value": "smallFamily",
+          "tags": ["family"]
+        },
+        {
+          "label": "Family of 5+ or need extra seats",
+          "value": "largeFamily",
+          "tags": ["family", "7seater"]
+        },
+        {
+          "label": "Elderly parents (comfort priority)",
+          "value": "elderly",
+          "tags": ["comfort", "chauffeurDriven"]
+        }
+      ],
+      "usedFor": ["scoring"]
+    },
+    {
+      "id": "terrain",
+      "question": "What kind of roads do you mostly drive on?",
+      "type": "singleChoice",
+      "options": [
+        { "label": "Smooth city roads", "value": "city", "tags": ["city"] },
+        {
+          "label": "Mix of city and highway",
+          "value": "mixed",
+          "tags": ["city", "highway"]
+        },
+        {
+          "label": "Rough / broken roads / rural",
+          "value": "rough",
+          "tags": ["roughRoads", "offroad"]
+        },
+        {
+          "label": "Mostly highways",
+          "value": "highway",
+          "tags": ["highway", "longDrive"]
+        }
+      ],
+      "usedFor": ["scoring"]
+    },
+    {
+      "id": "priorities",
+      "question": "What matters most to you? (Pick up to 3)",
+      "type": "multiChoice",
+      "maxSelections": 3,
+      "options": [
+        {
+          "label": "Safety (high crash rating, ADAS)",
+          "value": "safety",
+          "tags": ["safety"],
+          "weight": 2.0
+        },
+        {
+          "label": "Fuel efficiency / low running cost",
+          "value": "mileage",
+          "tags": ["mileage", "eco"],
+          "weight": 1.5
+        },
+        {
+          "label": "Comfort & features",
+          "value": "comfort",
+          "tags": ["comfort", "premium"],
+          "weight": 1.0
+        },
+        {
+          "label": "Driving performance & fun",
+          "value": "performance",
+          "tags": ["performance", "driving"],
+          "weight": 1.0
+        },
+        {
+          "label": "Space & practicality",
+          "value": "space",
+          "tags": ["family", "space", "7seater"],
+          "weight": 1.0
+        },
+        {
+          "label": "Brand reliability & resale value",
+          "value": "reliability",
+          "tags": ["reliability"],
+          "weight": 1.0
+        },
+        {
+          "label": "Style & looks",
+          "value": "style",
+          "tags": ["style", "premium"],
+          "weight": 0.8
+        },
+        {
+          "label": "Eco-friendly (EV / Hybrid)",
+          "value": "eco",
+          "tags": ["electric", "hybrid", "eco"],
+          "weight": 1.0
+        }
+      ],
+      "usedFor": ["scoring"]
+    },
+    {
+      "id": "budget",
+      "question": "What's your total budget (on-road price)?",
+      "type": "range",
+      "min": 500000,
+      "max": 5000000,
+      "step": 100000,
+      "defaultRange": [800000, 2000000],
+      "unit": "INR",
+      "usedFor": ["filtering", "emiCalc"]
+    },
+    {
+      "id": "fuelPreference",
+      "question": "Any fuel type preference?",
+      "type": "multiChoice",
+      "maxSelections": 3,
+      "options": [
+        { "label": "Petrol (no preference)", "value": "Petrol", "tags": [] },
+        {
+          "label": "Diesel (long distance)",
+          "value": "Diesel",
+          "tags": ["diesel"]
+        },
+        {
+          "label": "Electric (eco-conscious)",
+          "value": "Electric",
+          "tags": ["electric", "eco"]
+        },
+        {
+          "label": "Hybrid (best of both)",
+          "value": "Hybrid Petrol",
+          "tags": ["hybrid"]
+        },
+        {
+          "label": "CNG (lowest running cost)",
+          "value": "CNG",
+          "tags": ["cng"]
+        },
+        { "label": "No preference", "value": "any", "tags": [] }
+      ],
+      "usedFor": ["filtering", "scoring"]
+    },
+    {
+      "id": "financing",
+      "question": "How are you planning to pay?",
+      "type": "singleChoice",
+      "options": [
+        { "label": "Full cash / no loan", "value": "cash" },
+        { "label": "Car loan (I'll share details)", "value": "loan" }
+      ],
+      "usedFor": ["emiCalc"]
+    },
+    {
+      "id": "loanDetails",
+      "question": "Loan details",
+      "type": "loanInput",
+      "showIf": { "financing": "loan" },
+      "fields": {
+        "downPaymentPercent": { "default": 20, "min": 10, "max": 50 },
+        "tenureMonths": { "options": [36, 48, 60, 72, 84], "default": 60 },
+        "interestRate": { "default": 8.75, "min": 7.0, "max": 14.0 }
+      },
+      "usedFor": ["emiCalc"]
+    },
+    {
+      "id": "dealbreakers",
+      "question": "Any absolute deal-breakers?",
+      "type": "multiChoice",
+      "maxSelections": 5,
+      "optional": true,
+      "options": [
+        {
+          "label": "No AMT gearbox",
+          "value": "noAMT",
+          "excludeTransmission": ["AMT"]
+        },
+        {
+          "label": "No less than 4-star safety",
+          "value": "minSafety4",
+          "minSafetyRating": 4
+        },
+        {
+          "label": "No less than 5-star safety",
+          "value": "minSafety5",
+          "minSafetyRating": 5
+        },
+        {
+          "label": "Must have sunroof",
+          "value": "needSunroof",
+          "requireFeature": "Sunroof"
+        },
+        {
+          "label": "Must have ADAS",
+          "value": "needADAS",
+          "requireFeature": "ADAS"
+        },
+        {
+          "label": "No diesel",
+          "value": "noDiesel",
+          "excludeFuel": ["Diesel"]
+        },
+        { "label": "Minimum 7 seats", "value": "min7Seats", "minSeats": 7 },
+        {
+          "label": "Must have 4WD/AWD",
+          "value": "need4WD",
+          "requireFeature": "4WD"
+        }
+      ],
+      "usedFor": ["filtering"]
+    }
+  ]
+}

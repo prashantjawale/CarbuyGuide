@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= title || 'CarbuyGuide'
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    nav.navbar
+      .nav-container
+        a.nav-brand(href="/") 🚗 CarbuyGuide
+        .nav-links
+          a.nav-link(href="/" class=(activeNav === 'home' ? 'active' : '')) All Cars
+          a.nav-link.nav-cta(href="/find-my-car" class=(activeNav === 'findMyCar' ? 'active' : '')) Find My Car
+
+    main.main-content
+      block content
+
+    footer.footer
+      .footer-container
+        p &copy; 2024 CarbuyGuide — Helping you find the right car, not just any car.
+
+    block scripts
+      script(src="/js/main.js")

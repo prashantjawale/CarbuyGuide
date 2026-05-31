@@ -1,0 +1,22 @@
+{
+  "name": "carbuyguide",
+  "version": "1.0.0",
+  "description": "Smart car recommendation engine with monthly ownership cost calculator",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "demo": "node src/demo.js"
+  },
+  "keywords": [
+    "car",
+    "recommendation",
+    "ownership-cost",
+    "india"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "pug": "^3.0.4"
+  }
+}

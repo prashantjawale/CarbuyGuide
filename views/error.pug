@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  .container.error-page
+    h1 #{title || 'Error'}
+    p= message || 'Something went wrong.'
+    a.btn.btn-primary(href="/") Go Home

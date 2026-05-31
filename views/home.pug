@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .container
+    .home-header
+      h1 Explore Cars
+      p Browse all #{totalCars} cars in our database, or let us 
+        a(href="/find-my-car") find the perfect one for you
+        |.
+
+    .car-grid
+      each car in cars
+        a.car-card(href=`/cars/${car.id}`)
+          .car-card-header
+            .car-badge= car.bodyType
+            if car.safetyRating >= 5
+              .car-badge.badge-safety ⭐ 5-Star Safe
+          .car-card-body
+            h3.car-name #{car.make} #{car.model}
+            p.car-variant= car.variant
+            .car-specs
+              .spec
+                span.spec-label Price
+                span.spec-value ₹#{(car.priceExShowroom / 100000).toFixed(1)}L
+              .spec
+                span.spec-label Mileage
+                span.spec-value #{car.mileageKMPL} km/l
+              .spec
+                span.spec-label Fuel
+                span.spec-value= car.fuelType
+              .spec
+                span.spec-label Power
+                span.spec-value #{car.powerBHP} BHP
+            .car-tags
+              each tag in car.bestFor.slice(0, 3)
+                span.tag= tag
+
+    .pagination
+      if hasPrev
+        a.page-btn(href=`/?page=${currentPage - 1}`) ← Previous
+      .page-info Page #{currentPage} of #{totalPages}
+      if hasNext
+        a.page-btn(href=`/?page=${currentPage + 1}`) Next →
