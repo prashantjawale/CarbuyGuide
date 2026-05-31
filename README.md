@@ -102,7 +102,7 @@ CarbuyGuide/
 ### Installation
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/prashantjawale/CarbuyGuide
 cd CarbuyGuide
 npm install
 ```
